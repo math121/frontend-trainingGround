@@ -1,0 +1,31 @@
+.negative {
+  background-color: black;
+  color: whitesmoke;
+}
+
+.positive {
+  background-color: #ff7961;
+  color: whitesmoke;
+}
+
+.huge {
+  font-size: xx-large;
+}
+
+#firstName {
+  /* use classes whenever you can. id is used to style only one element which rarely happens */
+  font-weight: bold;
+  font-size: large;
+  color: blue;
+  background-color: aqua;
+}
+
+img[src="https://media.giphy.com/media/Z890hxb6fSrbG/giphy.gif"]
+{
+  border-radius: 10%;
+}
+
+[data-myId="myOwnId"] {
+  font-weight: bold;
+  font-size: xx-large;
+}

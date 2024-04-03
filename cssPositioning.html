@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CSS Positioning</title>
+    <style>
+      main {
+        border: 1px solid black;
+        height: 8000px;
+        position: relative;
+        top: 0px;
+        left: 0px;
+      }
+      div {
+        background-color: cadetblue;
+        width: 100px;
+        height: 50px;
+        margin: 10px;
+        padding: 4px;
+        border: 1px solid black;
+      }
+      .relativePositioning {
+        position: relative;
+        top: -100px;
+        left: 900px;
+      }
+      .fixedPositioning {
+        position: fixed;
+        top: 0px;
+        right: 0px;
+      }
+      .absolutePositioning {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+      }
+      .stickyPositioning {
+        position: sticky;
+        top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div></div>
+      <div class="relativePositioning"></div>
+      <div class="fixedPositioning"></div>
+      <div class="absolutePositioning"></div>
+      <div class="stickyPositioning"></div>
+    </main>
+  </body>
+</html>
