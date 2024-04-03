@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS in Head</title>
+    <style>
+      .negative {
+        background-color: black;
+        color: whitesmoke;
+      }
+      .positive {
+        background-color: #ff7961;
+        color: whitesmoke;
+      }
+      .huge {
+        font-size: xx-large;
+      }
+      #firstName {
+        /* use classes whenever you can. id is used to style only one element which rarely happens */
+        font-weight: bold;
+        font-size: large;
+        color: blue;
+        background-color: aqua;
+      }
+      img[src="https://media.giphy.com/media/Z890hxb6fSrbG/giphy.gif"]
+      {
+        border-radius: 10%;
+      }
+      [data-myId="myOwnId"] {
+        font-weight: bold;
+        font-size: xx-large;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="positive">CSS is Amazing!</div>
+    <div class="negative">CSS is Amazing...ly easy!</div>
+    <div class="positive huge">
+      CSS is Amazingly powerful, what was I meant to say.
+    </div>
+    <div id="firstName">Test</div>
+    <img src="https://media.giphy.com/media/Z890hxb6fSrbG/giphy.gif" />
+    <div data-myId="myOwnId">My Own ID</div>
+  </body>
+</html>
