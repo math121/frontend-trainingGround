@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change CSS</title>
+    <style>
+      .mainResult {
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        font-size: 80px;
+      }
+      .negativeResult {
+        background-color: red;
+        color: white;
+      }
+      .positiveResult {
+        background-color: green;
+        color: white;
+      }
+    </style>
+    <script>
+      function addStyle(element, text) {
+        if (Number(text) > 0) return element.classList.add("positiveResult");
+        if (Number(text) < 0) return element.classList.add("negativeResult");
+      }
+    </script>
+  </head>
+  <body>
+    <main>
+      <h1 class="mainResult">1000</h1>
+      <h1 class="mainResult">-1000</h1>
+      <h1 class="mainResult">A name - not a number</h1>
+    </main>
+    <script>
+      const nodes = document.querySelectorAll(".mainResult");
+      nodes.forEach(element => {
+        addStyle(element, element.textContent)
+      });
+    </script>
+  </body>
+</html>
