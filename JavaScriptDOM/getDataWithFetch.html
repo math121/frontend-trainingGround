@@ -4,28 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fetch</title>
+    <style>
+      .searchInput {
+        margin: 20px;
+        font-size: 20px;
+      }
+      .searchBtn {
+        font-size: 20px;
+      }
+    </style>
     <script>
       function getUsers(element) {
         fetch("https://randomuser.me/api/?gender=female&results=30")
           .then((response) => response.json())
-          .then((data) => {
-            data.results.forEach((user) => {
-              const divUser = addUser(user);
-              element.appendChild(divUser)
-            });
-          });
+          .then((data) => fillMainPage(data.results, element));
+      }
+
+      function fillMainPage(data, element) {
+        if (element.hasChildNodes) element.replaceChildren();
+
+        data.forEach((user) => {
+          const divUser = addUser(user);
+          element.appendChild(divUser);
+        });
       }
 
       function addUser(user) {
         const div = document.createElement("div");
-        div.appendChild(addUserImage(user))
+        div.className = "user";
+        div.appendChild(addUserImage(user));
         div.appendChild(addUserName(user));
         return div;
       }
 
       function addUserName(user) {
         const h2 = document.createElement("h2");
-        h2.textContent = user.name.title + " " + user.name.first + " " + user.name.last;
+        h2.textContent =
+          user.name.title + " " + user.name.first + " " + user.name.last;
         return h2;
       }
 
@@ -35,6 +50,31 @@
         return image;
       }
 
+      function showOnlyFilteredUsers(input) {
+        const main = document.querySelector("main");
+        if (!input) {
+          getUsers(main);
+          return;
+        }
+
+        const getAllUsersOnPage = document.querySelectorAll("div.user");
+        const filteredUsers = [];
+        getAllUsersOnPage.forEach((div) => {
+          if (
+            div.childNodes[1].textContent
+              .toLowerCase()
+              .includes(input.toLowerCase())
+          )
+            filteredUsers.push(div);
+        });
+        main.replaceChildren(...filteredUsers);
+      }
+
+      function search() {
+        const input = document.querySelector("input");
+        showOnlyFilteredUsers(input.value);
+      }
+
       document.addEventListener("DOMContentLoaded", () => {
         const main = document.querySelector("main");
         getUsers(main);
@@ -42,6 +82,10 @@
     </script>
   </head>
   <body>
+    <div>
+      <input class="searchInput" type="text" placeholder="Type a name" />
+      <button onclick="search()" class="searchBtn">Search</button>
+    </div>
     <main></main>
   </body>
 </html>
