@@ -5,15 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GitHub Layout</title>
     <link href="practiceGitHub.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script>
+      const openSideNav = () => {
+        document.getElementById("sideNav").style.display = "block";
+      };
+
+      const closeSideNav = () => {
+        document.getElementById("sideNav").style.display = "none";
+      };
+
+      const openStarDropdown = () => {
+        document.getElementsByClassName("dropdown-content")[0].style.display =
+          "block";
+      };
+
+      const closeStarDropdown = () => {
+        document.getElementsByClassName("dropdown-content")[0].style.display =
+          "none";
+      };
+    </script>
   </head>
   <body>
     <main class="grid-content">
       <header>
-        <img id="hamburger" src="assets/images/hamburger.png" />
-        <img id="page-icon" src="assets/images/image.png" />
+        <img
+          id="hamburger"
+          src="/assets/images/hamburger.png"
+          alt="menu"
+          onclick="openSideNav()"
+        />
+        <img id="page-icon" src="/assets/images/githubIcon.png" alt="icon" />
         Dashboard
         <input type="search" />
       </header>
+
+      <nav class="sideNav" id="sideNav">
+        <a class="closeBtn" onclick="closeSideNav()">&times;</a>
+        <a href="#">Home</a>
+        <a href="#">Issues</a>
+        <a href="#">Pull requests</a>
+        <a href="#">Discussions</a>
+        <a href="#">Codespaces</a>
+        <hr class="solid">
+        <a href="#">Explore</a>
+        <a href="#">Marketplace</a>
+        <hr class="solid">
+        <a href="#">Repositories</a>
+      </nav>
+
       <nav class="left-content">
         <select name="org" id="org">
           <option value="1">MyProfile</option>
@@ -25,19 +68,101 @@
 
         <input type="search" />
         <ul>
-          <li>
-            <a href="https://www.w3schools.com/tags/tag_select.asp">Project1</a>
-          </li>
+          <li>Project1</li>
           <li>Project2</li>
           <li>Project3</li>
           <li>Project4</li>
         </ul>
         <p>Recent activity</p>
-        <p>When you take actions across GitHub, we'll provide links to that activity here.</p>
+        <p>
+          When you take actions across GitHub, we'll provide links to that
+          activity here.
+        </p>
       </nav>
       <div class="middle-content">
         Home <br /><br />
-        Trending repositories<br /><br />
+        <div class="rounded-box">
+          Trending repositories<br /><br />
+          <button class="dots">...</button>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio
+            debitis similique magni ipsam vitae repellendus delectus cum unde
+            soluta, consequuntur id doloribus cupiditate voluptate fuga vel!
+            Voluptates harum ab vel.
+          </p>
+          <div class="dropdown">
+            <button class="star">Star</button>
+            <button class="star-dropdown" onclick="openStarDropdown()">
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <div class="lists">
+                Lists
+                <button class="closeStarDropdown" onclick="closeStarDropdown()">&times;</button>
+              </div>
+              <hr class="solid" />
+              <label><input type="checkbox">Future ideas</input></label>
+              <label><input type="checkbox">My stack</input></label>
+              <label><input type="checkbox">Inspiration</input></label>
+              <hr class="solid" />
+              <button class="createList">+ Create List</button>
+            </div>
+          </div>
+
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio
+            debitis similique magni ipsam vitae repellendus delectus cum unde
+            soluta, consequuntur id doloribus cupiditate voluptate fuga vel!
+            Voluptates harum ab vel.
+          </p>
+          <div class="dropdown">
+            <button class="star">Star</button>
+            <button class="star-dropdown" onclick="openStarDropdown()">
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <div class="lists">
+                <p>Lists</p>
+                <button class="closeStarDropdown" onclick="closeStarDropdown()">&times;</button>
+              </div>
+              <hr class="solid" />
+              <label><input type="checkbox">Future ideas</input></label>
+              <label><input type="checkbox">My stack</input></label>
+              <label><input type="checkbox">Inspiration</input></label>
+              <hr class="solid" />
+              <button class="createList">+ Create List</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-box">
+          Recommended for you<br /><br />
+          <button class="dots">...</button>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio
+            debitis similique magni ipsam vitae repellendus delectus cum unde
+            soluta, consequuntur id doloribus cupiditate voluptate fuga vel!
+            Voluptates harum ab vel.
+          </p>
+          <div class="dropdown">
+            <button class="star">Star</button>
+            <button class="star-dropdown" onclick="openStarDropdown()">
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <div class="lists">
+                <p>Lists</p>
+                <button class="closeStarDropdown" onclick="closeStarDropdown()">&times;</button>
+              </div>
+              <hr class="solid" />
+              <label><input type="checkbox">Future ideas</input></label>
+              <label><input type="checkbox">My stack</input></label>
+              <label><input type="checkbox">Inspiration</input></label>
+              <hr class="solid" />
+              <button class="createList">+ Create List</button>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="right-content1">
         Latest changes <br /><br />
@@ -45,7 +170,24 @@
       </div>
       <div class="right-content2">
         Explore repositories <br /><br />
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+        <div class="explore-box">
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit hic quisquam illum assumenda consectetur nulla nihil 
+            repellat atque minima expedita, ab, qui, delectus aspernatur architecto quia modi dicta fugit aliquam.
+          </p>
+          <button class="explore-star">star</button>
+        </div>
+        <div class="explore-box">
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia, inventore.</p>
+          <button class="explore-star">star</button>
+        </div>
+        <div class="explore-box">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque temporibus assumenda aut laudantium culpa sit 
+            praesentium fuga ad quia doloribus?
+          </p>
+          <button class="explore-star">star</button>
+        </div>
       </div>
       <footer>The footer</footer>
     </main>
